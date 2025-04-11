@@ -5,11 +5,11 @@ function Navbar() {
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-xl">KY Marine Supply</a>
+                    <a className="btn btn-ghost text-3xl">K & Y Marine Supply</a>
                 </div>
             </div>
             <div className="navbar-center">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 text-lg text-lime-500">
                     <li><a>Engines</a></li>
                     <li><a>Gensets</a></li>
                     <li><a>About Us</a></li>
