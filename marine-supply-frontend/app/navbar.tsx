@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Navbar() {
@@ -10,7 +11,7 @@ function Navbar() {
             </div>
             <div className="navbar-center">
                 <ul className="menu menu-horizontal px-1 text-lg text-lime-500">
-                    <li><a href='/nav'>Engines</a></li>
+                    <li><Link href={'/nav'}>Engines</Link></li>
                     <li><a>Gensets</a></li>
                     <li><a>About Us</a></li>
                 </ul>
