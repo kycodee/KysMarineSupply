@@ -5,7 +5,6 @@ import HomePhoto from "./homePhoto";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <HomePhoto />
       <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
         <aside>
