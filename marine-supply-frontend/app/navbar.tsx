@@ -6,14 +6,14 @@ function Navbar() {
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-3xl">K & Y Marine Supply</a>
+                    <Link href={'/'} className="btn btn-ghost text-3xl">K & Y Marine Supply</Link>
                 </div>
             </div>
             <div className="navbar-center">
                 <ul className="menu menu-horizontal px-1 text-lg text-lime-500">
-                    <li><Link href={'/nav'}>Engines</Link></li>
-                    <li><a>Gensets</a></li>
-                    <li><a>About Us</a></li>
+                    <li><Link href={'/nav/engines'}>Engines</Link></li>
+                    <li><Link href={'/nav/gensets'}>Gensets</Link></li>
+                    <li><Link href={'/nav/about-page'}>About Us</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
