@@ -1,9 +1,29 @@
+"use client"
 import React from 'react'
+import ToastButton from '@/app/toastButton'
 
 function Engines() {
+
+
+    function toastAfterPurchase() {
+        // console.log('heyyy')
+        return (
+            <div className="toast toast-top toast-end ">
+                <div className="alert alert-info">
+                    <span>New mail arrived.</span>
+                </div>
+                <div className="alert alert-success">
+                    <span>Message sent successfully.</span>
+                </div>
+            </div>
+        )
+    }
+
+
     return (
         <div className='h-[85vh] items-center flex justify-center'>
             <div>
+                <ToastButton />
                 <div className="carousel rounded-box w-[85vw] ">
                     <div className="carousel-item p-[10px] card bg-base-100 w-96 shadow-sm">
                         <figure className='h-[305px]'>
@@ -25,7 +45,7 @@ function Engines() {
                                 <p>A Series</p>
                             </div>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
+                                <button className="btn btn-primary" onClick={() => toastAfterPurchase()}>Buy Now</button>
                             </div>
                         </div>
                     </div>
