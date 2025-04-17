@@ -2,6 +2,7 @@ from typing import Union
 
 from fastapi import FastAPI
 from pydantic import BaseModel
+from SqlServerConn import engine
 
 app = FastAPI()
 
@@ -27,3 +28,14 @@ def update_item(item_id: int, item: Item):
 @app.post("/items/")
 async def create_item(item: Item):
     return item
+
+
+# try:
+#     with engine.connect() as connection:
+#         result = connection.execute("SELECT @@VERSION")
+#         for row in result:
+#             print("Connection successful! SQL Server version:")
+#             print(row[0])
+# except Exception as e:
+#     print("Connection failed:")
+#     print(e)
