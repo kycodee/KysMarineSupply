@@ -13,10 +13,10 @@ function ToastButton() {
             return (
                 <div className="toast toast-top toast-end w-[110px] h-[110px] mr-[50px]">
                     <div className="alert alert-info">
-                        <span>New mail arrived.</span>
+                        <span>Notification</span>
                     </div>
                     <div className="alert alert-success">
-                        <span>Message sent successfully.</span>
+                        <span>Engine ordered successfully.</span>
                     </div>
                 </div>
             )
