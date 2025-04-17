@@ -10,10 +10,10 @@ function Engines() {
         return (
             <div className="toast toast-top toast-end ">
                 <div className="alert alert-info">
-                    <span>New mail arrived.</span>
+                    <span>New Notification.</span>
                 </div>
                 <div className="alert alert-success">
-                    <span>Message sent successfully.</span>
+                    <span>Engine ordered successfully.</span>
                 </div>
             </div>
         )
