@@ -1,11 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
+from sqlalchemy import text
 
 connection_url = URL.create(
     "mssql+pyodbc",
     username="SA",
     password="MarineSupply@2025",
-    host="localhost",
+    host="127.0.0.1",
     port=1433,
     database="master",  
     query={
@@ -19,7 +20,7 @@ engine = create_engine(connection_url)
 
 try:
     with engine.connect() as connection:
-        result = connection.execute("SELECT @@VERSION")
+        result = connection.execute(text("SELECT @@VERSION"))
         for row in result:
             print("Connection successful! SQL Server version:")
             print(row[0])
