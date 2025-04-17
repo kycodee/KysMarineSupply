@@ -6,14 +6,6 @@ from SqlServerConn import engine
 
 app = FastAPI()
 
-class Engine(BaseModel):
-    name: str
-    img_url: str
-    power: str
-    series: str
-    link: str
-
-
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
