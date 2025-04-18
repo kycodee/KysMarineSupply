@@ -1,6 +1,6 @@
 from typing import Union
 
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 import crud, schemas
 from SqlServerConn import get_db, engine, Base
@@ -17,4 +17,14 @@ seed_data()
 def read_engines(db: Session = Depends(get_db)):
     return crud.get_engines(db)
 
+@app.post("/orders", response_model=schemas.OrderRead)
+def create_order(order: schemas.OrderCreate, db: Session = Depends(get_db)):
+    engine = crud.get_engine(db, engine_id=order.engine_id)
+    if not engine:
+        raise HTTPException(status_code=404, detail="Engine not found")
+    
+    if engine.current_stock is not None and engine.current_stock < order.quantity:
+        raise HTTPException(status_code=400, detail="Not enough stock available")
+
+    return crud.create_order(db, order)
 
