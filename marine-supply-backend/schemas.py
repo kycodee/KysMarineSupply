@@ -25,7 +25,7 @@ class EngineRead(EngineBase):
 # Order Schema
 class OrderBase(BaseModel):
     engine_id: int
-    quantity: int
+    quantity: int = 1
 
 class OrderCreate(OrderBase):
     pass
