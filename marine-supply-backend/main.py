@@ -1,35 +1,20 @@
 from typing import Union
 
-from fastapi import FastAPI
-from pydantic import BaseModel
-from SqlServerConn import engine
+from fastapi import FastAPI, Depends
+from sqlalchemy.orm import Session
+import crud, schemas
+from SqlServerConn import get_db, engine, Base
+from sqlalchemy.orm import Session
+from models import Engine
+from seed_db import seed_data
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+
+seed_data()
+
+@app.get("/engines", response_model=list[schemas.EngineRead])
+def read_engines(db: Session = Depends(get_db)):
+    return crud.get_engines(db)
 
 
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Union[str, None] = None):
-#     return {"item_id": item_id, "q": q}
-
-# @app.put("/items/{item_id}")
-# def update_item(item_id: int, item: Item):
-#     return {"item_name": item.name, "item_id": item_id}
-
-# @app.post("/items/")
-# async def create_item(item: Item):
-#     return item
-
-
-# try:
-#     with engine.connect() as connection:
-#         result = connection.execute("SELECT @@VERSION")
-#         for row in result:
-#             print("Connection successful! SQL Server version:")
-#             print(row[0])
-# except Exception as e:
-#     print("Connection failed:")
-#     print(e)
