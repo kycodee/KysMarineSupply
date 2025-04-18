@@ -1,15 +1,10 @@
 "use client"
 import React from 'react'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 function ToastButton() {
 
-    const [purchased, setPurchased] = useState('')
-
-
-    // function toastAfterPurchase() {
-
-    //     if (purchased) {
+   
             return (
                 <div className="toast toast-top toast-end w-[110px] h-[110px] mr-[50px]">
                     <div className="alert alert-info">
@@ -22,7 +17,5 @@ function ToastButton() {
             )
         }
 
-//     }
-// }
 
 export default ToastButton

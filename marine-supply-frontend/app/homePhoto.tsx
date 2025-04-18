@@ -10,8 +10,8 @@ function HomePhoto(){
         backgroundSize: 'contain', 
         backgroundRepeat: 'no-repeat'}}>
         <div className='flex flex-col justify-center items-center text-center' style={{height: '100%'}}>
-            <h1 className='text-5xl'>Louisiana's #1 Marine Equipment Distributor Since 2001</h1>
-            <p className='text-2xl mt-[20px] text-lime-500'>"Powering the Gulf Coast, One Vessel at a Time."</p>
+            <h1 className='text-5xl'>Louisiana&apos;s #1 Marine Equipment Distributor Since 2001</h1>
+            <p className='text-2xl mt-[20px] text-lime-500'>&quot;Powering the Gulf Coast, One Vessel at a Time.&quot;</p>
         </div>
     </div>
   )
