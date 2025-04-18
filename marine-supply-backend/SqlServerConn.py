@@ -1,6 +1,10 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.engine import URL
-from sqlalchemy import text
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
+
 
 connection_url = URL.create(
     "mssql+pyodbc",
@@ -25,3 +29,12 @@ try:
 except Exception as e:
     print("Connection failed:")
     print(e)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()

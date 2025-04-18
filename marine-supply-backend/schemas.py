@@ -5,6 +5,7 @@ class EngineBase(BaseModel):
     power: str
     series: str
     image_url: str
+    link: str
 
 class EngineCreate(EngineBase):
     pass
@@ -13,4 +14,4 @@ class EngineRead(EngineBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
