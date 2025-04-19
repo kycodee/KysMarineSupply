@@ -44,6 +44,8 @@ At regular intervals (e.g., end of the month), historical sales data is passed t
 
 ## Frontend Setup
 
+### Install Python
+
 ### Install Dependencies
 
 ```bash
