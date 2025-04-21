@@ -8,7 +8,6 @@ K & Y Marine Supply is a full-stack web application designed for a marine supply
 
 -  Purchase powerful marine engines
 -  Hourly sales data collection for demand forecasting
--  Sales data collected and processed to forecast future demand
 -  Machine learning model to predict next-hour sales and prevent overstocking/understocking
 
 ---
@@ -52,6 +51,9 @@ npm run dev
 ```
 ## Backend Setup
 
+```bash
+cd marine-supply-backend
+```
 ### Upgrade pip
 ```bash
 pip install --upgrade pip
