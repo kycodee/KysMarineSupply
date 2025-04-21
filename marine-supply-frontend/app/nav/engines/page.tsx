@@ -1,7 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import HourlyDemandForecastButton from '@/app/forecastButton'
 
+// Defines the shape of the Engine object
 type Engine = {
   id: number
   name: string
@@ -13,10 +15,14 @@ type Engine = {
 }
 
 function Engines() {
+
+  // Stores the engines from the database
   const [engines, setEngines] = useState<Engine[]>([])
+  // Controls the visiblity of the toast based on "buy now" clicks
   const [toastVisible, setToastVisible] = useState(false)
 
   useEffect(() => {
+    // Grabs engines from the database when page initially loads
     axios.get<Engine[]>('http://localhost:8000/engines')
       .then((res: { data: Engine[] }) => setEngines(res.data))
       .catch((err: unknown) => {
@@ -28,16 +34,20 @@ function Engines() {
       })
   }, [])
 
+  // Orders specific engine based on "buy now" button click
   const handleBuy = async (engineId: number) => {
     try {
+      // POST request that creates an order in the database
       await axios.post('http://localhost:8000/orders', {
         engine_id: engineId,
         quantity: 1,
       })
 
+      // Shows toast to confirm an engine has been purchased
       setToastVisible(true)
       setTimeout(() => setToastVisible(false), 3000)
 
+      // Decrease stock amount by 1 every time an engine is purchased   
       setEngines(prev =>
         prev.map(engine =>
           engine.id === engineId
@@ -66,7 +76,6 @@ function Engines() {
             </div>
           </div>
         )}
-
         <div className="carousel rounded-box w-[85vw]">
           {engines.map(engine => (
             <div key={engine.id} className="carousel-item p-[10px] card bg-base-100 w-96 shadow-sm">
@@ -93,6 +102,7 @@ function Engines() {
             </div>
           ))}
         </div>
+        <HourlyDemandForecastButton />
       </div>
     </div>
   )

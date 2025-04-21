@@ -6,7 +6,7 @@ function AboutPage() {
       <div className="w-[50%] h-[75vh] boatPhotoDiv bg-no-repeat bg-cover bg-center">
 
       </div>
-      <div className='bg-blue-600 h-[75vh] w-[50%] flex items-center justify-center'>
+      <div className='bg-blue-900 h-[75vh] w-[50%] flex items-center justify-center'>
         <div className="max-w-4xl mx-auto text-center text-lime-500">
           <h2 className="text-3xl font-bold mb-4 text-lime-500">About Us</h2>
           <p className="text-2xl mb-6">
