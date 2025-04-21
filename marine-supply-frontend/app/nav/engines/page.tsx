@@ -9,7 +9,7 @@ type Engine = {
   series: string
   image_url: string
   link: string
-  stock: number
+  current_stock: number
 }
 
 function Engines() {
@@ -41,7 +41,7 @@ function Engines() {
       setEngines(prev =>
         prev.map(engine =>
           engine.id === engineId
-            ? { ...engine, stock: engine.stock - 1 }
+            ? { ...engine, current_stock: engine.current_stock - 1 }
             : engine
         )
       )
@@ -79,14 +79,14 @@ function Engines() {
                 <h2 className="card-title">{engine.name}</h2>
                 <div className='flex justify-between'><p>Power</p><p>{engine.power}</p></div>
                 <div className='flex justify-between'><p>Series</p><p>{engine.series}</p></div>
-                <div className='flex justify-between'><p>In Stock</p><p>{engine.stock}</p></div>
+                <div className='flex justify-between'><p>In Stock</p><p>{engine.current_stock}</p></div>
                 <div className="card-actions justify-end">
                   <button
                     className="btn btn-primary"
                     onClick={() => handleBuy(engine.id)}
-                    disabled={engine.stock < 1}
+                    disabled={engine.current_stock < 1}
                   >
-                    {engine.stock < 1 ? 'Out of Stock' : 'Buy Now'}
+                    {engine.current_stock < 1 ? 'Out of Stock' : 'Buy Now'}
                   </button>
                 </div>
               </div>
