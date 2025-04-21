@@ -6,17 +6,16 @@ K & Y Marine Supply is a full-stack web application designed for a marine supply
 
 ## Features
 
--  Purchase powerful marine engines and generators
--  Inventory management with live stock tracking
+-  Purchase powerful marine engines
+-  Hourly sales data collection for demand forecasting
 -  Sales data collected and processed to forecast future demand
--  Machine learning regression model to reduce overstocking/understocking
--  Admin tools for order tracking and restocking suggestions
+-  Machine learning model to predict next-hour sales and prevent overstocking/understocking
 
 ---
 
 ## Machine Learning Integration
 
-At regular intervals (e.g., end of the month), historical sales data is passed through a **regression model** built with `scikit-learn`. This helps predict demand for each engine and generator, enabling smarter restocking decisions and reducing inventory overhead.
+Sales data is continuously logged and processed to predict the next hour’s demand for each product. A **regression model**, built with `scikit-learn`, uses recent hourly sales trends to forecast short-term demand. This enables real-time restocking decisions and helps the business respond quickly to shifts in customer purchasing behavior.
 
 ---
 
@@ -44,8 +43,6 @@ At regular intervals (e.g., end of the month), historical sales data is passed t
 
 ## Frontend Setup
 
-### Install Python
-
 ### Install Dependencies
 
 ```bash
@@ -54,11 +51,6 @@ npm install
 npm run dev
 ```
 ## Backend Setup
-### Create and activate a virtual environment
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
 
 ### Upgrade pip
 ```bash
