@@ -1,13 +1,21 @@
 from sqlalchemy.orm import Session
 from SqlServerConn import engine
-from models import Engine, Base
+from models import Engine, Order, Base
 
+# Function created to seed initial data
 def seed_data():
     Base.metadata.create_all(bind=engine)
 
     with Session(engine) as session:
+        # Deletes all orders when database is been seeded since they reference engines
+        session.query(Order).delete()
+        session.commit()
+
+        # Deletes all old engines before seeding the database using the new ones
         session.query(Engine).delete()
         session.commit()
+
+        # Engines from the Laborde Products website
         engines = [
                 Engine(
                     name="S6A3-Y1MPTA-3",
@@ -58,5 +66,7 @@ def seed_data():
                     current_stock=10
                 )
             ]
+        # Adds all the seed data(engines) into the current session
         session.add_all(engines)
+        # Commit the changes into the database
         session.commit()
