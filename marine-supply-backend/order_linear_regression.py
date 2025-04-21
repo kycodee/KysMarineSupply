@@ -34,11 +34,11 @@ def forecast_hourly_demand(session: Session):
         predicted_quantity = model.predict([[next_hour]])[0]
         predicted_quantity = max(round(predicted_quantity), 0)
 
-        # 🔍 Get engine name from the database
+        # Grabs engine name from the database
         engine = session.query(Engine).filter(Engine.id == engine_id).first()
         engine_name = engine.name if engine else f"Engine ID {engine_id}"
 
-        # ✅ Use engine name as key instead of ID
+        # Uses engine name as key instead of ID
         forecasts[engine_name] = int(predicted_quantity)
 
     print(forecasts)
